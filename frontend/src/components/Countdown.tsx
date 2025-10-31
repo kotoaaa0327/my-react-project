@@ -2,12 +2,29 @@
 
 import { useState, useEffect } from "react";
 
-const now = new Date();
-
 const Countdown: React.FC = () => {
-  const startLiveDate = new Date("2026-03-28");
+
+  const countdownEnv = import.meta.env.VITE_COUNTDOWN_END;
+
+  const endDate = countdownEnv
+    ? new Date(countdownEnv)
+    : new Date(new Date().setHours(23, 59, 59, 999));
+
+  if (isNaN(endDate.getTime())) {
+    console.error("Countdown target date is invalid:", countdownEnv);
+  }
+
+  // const targetDate = import.meta.env.VITE_COUNTDOWN_END as string;
+  // console.log("targetDate:", targetDate);
+
+  // const endDate = new Date(targetDate);
+  // if (isNaN(endDate.getTime())) {
+  //   console.error("Countdown target date is invalid:", targetDate);
+  //   // fallback に今日の日付などを設定してエラーを防ぐ
+  // }
+
   const [timeLeft, setTimeLeft] = useState(
-    startLiveDate.getTime() - Date.now()
+    endDate.getTime() - Date.now()
   );
 
   //日時計算
@@ -18,10 +35,10 @@ const Countdown: React.FC = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(startLiveDate.getTime() - Date.now());
+      setTimeLeft(endDate.getTime() - Date.now());
     }, 1000);
     return () => clearInterval(timer);
-  }, [startLiveDate]);
+  }, [endDate]);
 
   return (
     <div className=" text-center py-10">
