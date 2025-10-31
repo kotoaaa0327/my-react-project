@@ -1,16 +1,18 @@
 //ログインフォーム
 
 import { useState, FormEvent } from "react";
+//ログイン・サインアップなどの処理をまとめたカスタムフック
 import { useAuth } from "../AuthContext";
 import { useNavigate } from "react-router-dom";
 
+//LoginFormにonLoginSuccess関数を渡し、ログイン成功時にその関数を呼び出して、親コンポーネントに成功したことを知らせる。
 interface LoginFormProps {
   onLoginSuccess: () => void;
 }
 
+//
 export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
   const [name, setName] = useState("");
-
   const [birthDate, setBirthDate] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,24 +25,29 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
   const navigate = useNavigate();
 
   //ログイン
+  //フォーム送信時にhandleSubmitが呼ばれる
   async function handleSubmit(event: FormEvent) {
+    //送信した瞬間にページがリロードするのを防ぐ
     event.preventDefault();
     //新たなログイン試行を始める前に、画面上の古いエラー表示をリセットするため、以前のログイン試行で表示されていたエラーメッセージを一旦消去。
     setError("");
+    //ログイン処理中
     setLoading(true);
 
+    //成功するかもしれない処理
     try {
       await login(email, password);
       console.log("login成功、MyPageへ移動します");
+      //onLoginSuccess() を呼んで親にログイン成功と通知
       onLoginSuccess();
 
       // navigate("/MyPage");
-      // ログイン成功
+      //エラーが起きたときだけ実行される
     } catch (event) {
-      // ログイン失敗
       setError(
         "ログインに失敗しました。メールアドレスまたはパスワードを確認してください。"
       );
+      //成功・失敗どちらの場合でも必ず実行される。falseで処理完了に変える
     } finally {
       setLoading(false);
     }
@@ -51,6 +58,7 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
     event.preventDefault();
     setError("");
 
+    //signup_modalを取得
     const modalElement = document.getElementById("signup_modal");
     (document.getElementById("signup_modal") as HTMLDialogElement)!.showModal();
   }
@@ -64,13 +72,16 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
       await signup(email, password, name, birthDate);
       console.log("LOGIN SUCCESS: Calling onLoginSuccess()");
 
+      //onLoginSuccess() を呼んで親にログイン成功と通知
       onLoginSuccess();
-      // 登録成功後のリダイレクト処理などをここに追加
+
+      // 登録成功後のリダイレクト処理
     } catch (event) {
       // 認証失敗時
       setError(
         "新規登録に失敗しました。パスワードは6文字以上、メールアドレスの形式を確認してください。"
       );
+      //成功・失敗どちらの場合でも必ず実行される。falseで処理完了に変える
     } finally {
       setLoading(false);
     }
@@ -80,8 +91,8 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
     <>
     {/* 新規登録フォーム */}
       <dialog id="signup_modal" className="modal ">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg">新規登録</h3>
+        <div className="modal-box text-left">
+          <h3 className="font-bold text-xl text-center">新規登録</h3>
 
           {/* モーダル内のエラー表示 */}
           {error && <p className="text-red-500">{error}</p>}
@@ -105,7 +116,7 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
           <div className=" mt-4">
             <label className="label font-bold">
               生年月日 :
-              <div className="flex items-center ml-2">
+              <div className="flex items-center ml-2 h-10">
                 <input
                   type="text"
                   className="w-20 text-center border-b border-gray-400"
@@ -183,19 +194,20 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
           </div>
 
           {/* 新規登録完了ボタン */}
-          <div className="flex mt-6 md:px-8 lg:px-20  justify-between">
+          <div className="text-center mt-6 md:px-8 lg:px-20  ">
             <button
-              className="btn px-5 py-1 border-2 border-gray-400  rounded-full hover:bg-[#FFABCE] transition mr-8"
+              className="btn px-5 py-1 mt-5 border-2 border-gray-400  rounded-full hover:bg-[#FFABCE] transition "
               onClick={handleFinalSignup}
+              //連打防止
               disabled={loading}
             >
               {loading ? "登録処理中..." : "登録を完了する"}
             </button>
 
             {/* 閉じる */}
-            <form method="dialog" className="inline-block">
+            <form method="dialog" className="">
               <button
-                className="btn px-5 py-1 border-2 border-gray-400 rounded-full hover:bg-[#A4C6FF] transition"
+                className="btn px-5 py-1 mt-5 border-2 border-gray-400 rounded-full hover:bg-[#A4C6FF] transition"
                 onClick={() => {
                   setError("");
                 }}

@@ -12,7 +12,7 @@ type RequestData = Omit<requestSong, "id" | "createdAt"> & {
 };
 
 const RequestFormDtl: React.FC = () => {
-  const { currentUser, userProfile } = useAuth();
+  const { currentUser, userProfile, loading: authLoading } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -24,17 +24,27 @@ const RequestFormDtl: React.FC = () => {
   const [success, setSuccess] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  //戻るボタン
   const handleBackClick = () => {
     navigate(-1);
   };
 
+  if (authLoading) {
+    return (
+      <div className="min-h-[100vh] flex flex-col items-center justify-center">
+        <p>ユーザー情報を読み込み中...</p>
+      </div>
+    );
+  }
+
   //ユーザーがログインしているか確認
+  //サインインしていないorFirestore から取得したユーザーデータがない時
   if (!currentUser || !userProfile) {
     return (
       <div className="flex flex-col items-center   min-h-[100vh]">
         <p className="request-login ">リクエストにはログインが必要です。</p>
         <button
-          className="move-login-page "
+          className="move-login-page"
           onClick={() =>
             navigate("/fanclub/detail", { state: { from: location.pathname } })
           }
@@ -50,6 +60,7 @@ const RequestFormDtl: React.FC = () => {
     );
   }
 
+  //ユーザーがフォームを送信したらsetIsSubmitted(true)として送信済み状態に切り替える
   if (isSubmitted) {
     return (
       <div className="flex flex-col items-center justify-center  min-h-[100vh] ">
@@ -73,6 +84,7 @@ const RequestFormDtl: React.FC = () => {
 
   //ログイン
   const handleSubmitRequest = async (event: React.FormEvent) => {
+    //送信した瞬間にページがリロードするのを防ぐ
     event.preventDefault();
     //新たなログイン試行を始める前に、画面上の古いエラー表示をリセットするため、以前のログイン試行で表示されていたエラーメッセージを一旦消去。
     setError(null);
@@ -86,6 +98,7 @@ const RequestFormDtl: React.FC = () => {
     setLoading(true);
 
     try {
+      //Firestoreの"requests"コレクションから自分のユーザー情報のドキュメントを取得
       const userRequestDoc = doc(db, "requests", currentUser.uid);
       const requestData: RequestData = {
         songTitle: songTitle.trim(),
@@ -96,10 +109,15 @@ const RequestFormDtl: React.FC = () => {
         createdAt: serverTimestamp(),
       };
 
+      //指定したドキュメント（userRequestDoc）にデータ（requestData）を書き込む。
       await setDoc(userRequestDoc, requestData as Record<string, any>);
+      //送信が成功したらisSubmitted→trueにして、完了画面に切り替え。
       setIsSubmitted(true);
+      //送信が成功したことを示すフラグ。
       setSuccess(true);
+      //入力欄を空にして、次の入力に備える。
       setSongTitle("");
+      //入力欄を空にして、次の入力に備える。
       setReason("");
     } catch (error) {
       console.error("楽曲リクエストの送信に失敗しました:", error);
@@ -143,7 +161,7 @@ const RequestFormDtl: React.FC = () => {
           required
           className="py-4 px-2"
         />
-        {/* 選挙区理由入力 */}
+        {/* 選曲理由入力 */}
         <label htmlFor="reason" className="mt-5 mb-3">
           【選曲理由】
         </label>

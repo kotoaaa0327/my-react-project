@@ -74,49 +74,49 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     name: string,
     birthDate: string
   ) {
-    //新規登録
-    const userCredential = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-    const user = userCredential.user;
+      //新規登録
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
 
-    // Firebase Authentication に名前を登録
-    await updateProfile(user, { displayName: name });
+      // Firebase Authentication に名前を登録
+      await updateProfile(user, { displayName: name });
 
-    // Firestore にユーザーデータを保存
-    await setDoc(doc(db, "users", user.uid), {
-      name,
-      birthDate,
-      email,
-      createdAt: serverTimestamp(),
-    });
+      // Firestore にユーザーデータを保存
+      await setDoc(doc(db, "users", user.uid), {
+        name,
+        birthDate,
+        email,
+        createdAt: serverTimestamp(),
+      });
 
-    setCurrentUser(user);
-    setUserProfile({ name, birthDate, email });
-    return user;
+      setCurrentUser(user);
+      setUserProfile({ name, birthDate, email });
+      return user;
   }
 
   //ログイン
   async function login(email: string, password: string) {
-    const userCredential = await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-    const user = userCredential.user;
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
 
-    // Firestore からプロフィールを取得
-    const userDoc = await getDoc(doc(db, "users", user.uid));
-    if (userDoc.exists()) {
-      setUserProfile(userDoc.data());
-    } else {
-      setUserProfile(null);
-    }
+      // Firestore からプロフィールを取得
+      const userDoc = await getDoc(doc(db, "users", user.uid));
+      if (userDoc.exists()) {
+        setUserProfile(userDoc.data());
+      } else {
+        setUserProfile(null);
+      }
 
-    setCurrentUser(user);
-    return user;
+      setCurrentUser(user);
+      return user;
   }
 
   //パスワードリセットの認証アクションメールにリダイレクトURLを含める
@@ -162,7 +162,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setCurrentUser(null);
         setUserProfile(null);
       }
-
+      
       setLoading(false);
     });
     return unsubscribe;

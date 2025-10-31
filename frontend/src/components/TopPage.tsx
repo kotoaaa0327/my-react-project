@@ -30,7 +30,7 @@ const TopPage: React.FC = () => {
 
         <section id="schedule" className="text-center tracking-wider ">
           <h2 className="section-title"> SCHEDULE </h2>
-          <div className="schedule-layout ">{concertsSchedule}</div>
+          <div className="schedule-layout">{concertsSchedule}</div>
         </section>
 
         <section id="ticket">

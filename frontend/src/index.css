@@ -7,7 +7,7 @@
   /* 各項目タイトル */
   .section-title {
     /* デフォルトのスタイル */
-    @apply text-3xl font-bold font-display tracking-wider mb-3 mt-8;
+    @apply text-3xl font-bold font-display tracking-wider mb-4 mt-8;
 
     /* 768px以上(md)のスタイル */
     @apply md:text-5xl md:mb-10 md:mt-20;
@@ -61,18 +61,18 @@
   .schedule-layout {
     @apply border border-black mx-10 py-1 bg-white;
 
-    @apply md:mx-28;
+    @apply md:mx-32;
 
-    @apply lg:mx-36;
+    @apply lg:mx-40;
   }
 
   /* トップページのスケジュール中身 */
   .schedule-inner {
-    @apply flex text-sm text-left w-11/12 py-2 px-1 ml-3;
+    @apply flex text-sm text-left py-2 px-4 my-1;
 
-    @apply md:mx-20 md:text-xl;
+    @apply md:mx-14 md:my-2 md:text-xl;
 
-    @apply lg:mx-24 lg:my-4 lg:text-3xl;
+    @apply lg:mx-16 lg:my-4 lg:text-3xl;
   }
 
   /* トップページのTICKET/GOODS/FANCLUB/REQUEST大枠 */
@@ -105,7 +105,7 @@
   /* チケット詳細ページ */
   /* チケット見出し */
   .ticket-title {
-    @apply text-xl font-bold py-4 text-center;
+    @apply text-xl font-bold pt-8 pb-4 text-center;
 
     @apply md:text-2xl  md:pt-8 md:pb-6;
 
@@ -114,7 +114,7 @@
 
   /* チケット詳細大枠 */
   .ticket-container {
-    @apply border border-black p-1 my-2;
+    @apply border border-black py-1 px-2 my-2;
 
     @apply md:p-4 md:my-4 md:px-8;
 
@@ -150,7 +150,7 @@
 
   /* チケット選択タイトル */
   .concert-select-title {
-    @apply font-bold mb-2 bg-gray-200;
+    @apply font-bold mb-2 bg-gray-200 py-1;
 
     @apply md:text-xl;
 
@@ -168,18 +168,18 @@
 
   /* 予約完了ボタン */
   .reservation-button {
-    @apply px-4 py-2 mb-4 border-2 border-gray-400  rounded-full hover:bg-[#FFBEDA] transition font-bold;
+    @apply px-4 py-2 mt-4 mb-6 border-2 border-gray-400  rounded-full hover:bg-[#FFBEDA] transition font-bold;
 
-    @apply   md:mb-6 md:text-lg;
+    @apply md:mb-6 md:text-lg;
 
-    @apply  lg:mb-6 lg:text-xl;
+    @apply lg:mb-6 lg:text-xl;
   }
 
   /* GOODSページ */
 
   /* GOODSページ注意事項 */
   .precautions {
-    @apply text-xl font-bold text-center mt-4;
+    @apply text-xl font-bold text-center mt-5;
 
     @apply md:text-3xl md:mt-8;
 
@@ -188,7 +188,7 @@
 
   /* GOODS詳細 */
   .goods-detail {
-    @apply text-sm px-6 tracking-wide mt-2;
+    @apply text-sm px-6 tracking-wide mt-1;
 
     @apply md:text-2xl md:px-12;
 
@@ -256,18 +256,16 @@
 
     @apply md:text-3xl md:py-20;
 
-    @apply lg:text-4xl ;
+    @apply lg:text-4xl;
   }
 
-  .update-title .input{
+  .update-title .input {
     @apply ml-2 border-b border-gray-400;
 
     @apply md:text-3xl md:py-20;
 
-    @apply lg:text-4xl ;
+    @apply lg:text-4xl;
   }
-
-
 
   /* マイページ更新ボタン */
   .update-button {
@@ -280,7 +278,7 @@
 
   /* リクエストページタイトル */
   .request-login {
-    @apply font-bold text-xl pt-40 ;
+    @apply font-bold text-xl pt-40;
 
     @apply md:text-3xl;
 
@@ -315,7 +313,7 @@
 
   /* フッター */
   .footer-copyright {
-    @apply text-sm py-5 text-center font-display;
+    @apply text-sm pt-8 pb-6 text-center font-display;
 
     @apply md:text-xl  md:py-8;
 

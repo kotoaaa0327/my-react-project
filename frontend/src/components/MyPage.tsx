@@ -11,6 +11,7 @@ const MyPage: React.FC = () => {
     navigate("/");
   };
 
+  //ユーザー情報の読み込み中
   if (authLoading) {
     return (
       <div>
@@ -19,6 +20,7 @@ const MyPage: React.FC = () => {
     );
   }
 
+  //サインイン済みのユーザーがいない場合
   if (!currentUser) {
     return (
       <div>
@@ -26,6 +28,7 @@ const MyPage: React.FC = () => {
           <p>マイページ閲覧にはログインが必要です。</p>
           <button
             onClick={() =>
+              //fanclub/detailに遷移しつつ、元のページ情報も一緒に渡す
               navigate("/fanclub/detail", {
                 state: { from: location.pathname },
               })
@@ -38,8 +41,10 @@ const MyPage: React.FC = () => {
     );
   }
 
+  //ユーザー情報の誕生日を表示。なければ未登録と表示
   const birthDate: string = userProfile?.birthDate ?? "未登録";
   const displayName = userProfile?.name || currentUser.displayName || "未設定";
+
 
   const handleLogout = async () => {
     try {
@@ -51,10 +56,12 @@ const MyPage: React.FC = () => {
     }
   };
 
+  //マイページ編集画面に移動
   const handleEditClick = () => {
     navigate("/MyPageEdit");
   };
 
+  
   return (
     <div className=" min-h-[100vh] mx-8 flex justify-center">
       <div className="px-4">

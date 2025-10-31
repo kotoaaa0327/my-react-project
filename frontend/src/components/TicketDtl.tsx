@@ -220,7 +220,7 @@ const TicketDtl: React.FC = () => {
         <h2 className="ticket-title">チケット詳細・申し込み</h2>
 
         <div>
-          <h3 className="text-center font-bold bg-[#BBBBBB] border border-black md:text-xl lg:text-2xl my-3 px-2 py-2">
+          <h3 className="text-center font-bold bg-[#AAAAAA] border border-black md:text-xl lg:text-2xl my-3 px-2 py-2">
             チケット詳細
           </h3>
           <div className="border-black bg-white">
@@ -230,7 +230,7 @@ const TicketDtl: React.FC = () => {
           </div>
         </div>
         <div>
-          <h3 className="text-center font-bold bg-[#BBBBBB] border border-black md:text-xl lg:text-2xl mt-10 mb-3 px-2 py-2">
+          <h3 className="text-center font-bold bg-[#AAAAAA] border border-black md:text-xl lg:text-2xl mt-10 mb-3 px-2 py-2">
             チケット申し込み
           </h3>
 
@@ -397,7 +397,7 @@ const TicketDtl: React.FC = () => {
         </div>
 
         {/* 戻るボタン */}
-        <div className="text-center">
+        <div className="text-center my-4">
           <button onClick={handleBackClick} className="back-button">
             戻る
           </button>
