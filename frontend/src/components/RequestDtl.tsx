@@ -130,7 +130,7 @@ const RequestFormDtl: React.FC = () => {
   };
 
   return (
-    <div className="p-6 md:pt-16 min-h-[100vh] ">
+    <div className="p-6 md:pt-20 md:px-16 lg:px-32 min-h-[100vh] ">
       <h1 className="font-bold text-center text-3xl md:text-4xl">
         楽曲リクエスト
       </h1>
@@ -149,7 +149,7 @@ const RequestFormDtl: React.FC = () => {
         </h2>
 
         {/* 曲名入力 */}
-        <label htmlFor="songTitle" className="mt-10 mb-3">
+        <label htmlFor="songTitle" className="mt-10 mb-3 md:text-xl ">
           【曲名】
         </label>
         <input
@@ -159,10 +159,10 @@ const RequestFormDtl: React.FC = () => {
           onChange={(event) => setSongTitle(event.target.value)}
           disabled={loading}
           required
-          className="py-4 px-2"
+          className="py-4 px-2 "
         />
         {/* 選曲理由入力 */}
-        <label htmlFor="reason" className="mt-5 mb-3">
+        <label htmlFor="reason" className="mt-5 mb-3 md:text-xl">
           【選曲理由】
         </label>
         <textarea
@@ -177,7 +177,7 @@ const RequestFormDtl: React.FC = () => {
         {/* 送信ボタン */}
         <button
           type="submit"
-          className="mx-20 md:mx-48 lg:mx-96  py-2 my-11 bg-gray-500 text-white rounded-full hover:bg-gray-600 transition text-center"
+          className="request-button"
         >
           {loading ? "送信中..." : "リクエストを送信"}
         </button>

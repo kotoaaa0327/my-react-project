@@ -298,9 +298,19 @@
   .request-detail {
     @apply mt-5;
 
-    @apply md:text-xl;
+    @apply md:mt-10 md:text-xl;
 
-    @apply lg:text-2xl;
+    @apply md:mt-10 lg:text-2xl;
+  }
+
+  /* リクエスト送信ボタン */
+  .request-button {
+    @apply  mx-20 py-2 my-11 bg-gray-500 text-white rounded-full hover:bg-gray-600 transition text-center;
+
+    @apply md:mt-16 md:mx-32 md:py-3 md:text-lg;
+
+    @apply lg:mt-20 lg:mx-48 lg:py-3 lg:text-xl;
+
   }
   /* 戻るボタン */
   .back-button {
