@@ -15,10 +15,13 @@ const MyPageEdit: React.FC = () => {
 
   //マイページ更新処理
   const handleUpdateProfile = async () => {
+    //サインインしていない場合は何もしない
     if (!currentUser) return;
     setLoading(true);
     try {
+      //Firestoreの"users"コレクションから自分のユーザー情報のドキュメントを取得
       const userRef = doc(db, "users", currentUser.uid);
+      //Firestore上のドキュメントを新しい生年月日と名前に更新
       await updateDoc(userRef, { birthDate, name });
       alert("生年月日を更新しました");
       navigate("/MyPage");
@@ -27,6 +30,7 @@ const MyPageEdit: React.FC = () => {
     }
   };
 
+  //mypageに戻るボタン
   const handleBackClick = async () => {
     navigate("/MyPage");
   };

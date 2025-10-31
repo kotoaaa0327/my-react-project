@@ -26,9 +26,10 @@ const FanClub: React.FC = ({ isLinkOnly = false }: FanClubProps) => {
   );
 
   if (isLinkOnly) {
+    //isLinkOnly→true：content（リンクだけの中身）を返す
     return content;
   }
-
+//false のとき：<div>{content}</div> にラップして返す
   return <div>{content}</div>;
 };
 

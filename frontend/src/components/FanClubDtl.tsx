@@ -4,14 +4,23 @@ import { useNavigate, useLocation } from "react-router-dom";
 import LoginForm from "./AuthForm";
 import { useAuth } from "../AuthContext";
 
-const FanClubDtl: React.FC = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
 
+const FanClubDtl: React.FC = () => {
+  //ページ遷移
+  const navigate = useNavigate();
+  //現在表示しているページのURL情報を取得
+  const location = useLocation();
+//Firebase認証でサインインしているユーザー情報,
+//ログアウトする関数
+// Firestoreから取得したプロフィールデータ
+// 読み込み中かどうかの状態 を取り出す
   const { currentUser, logout, userProfile, loading: authLoading } = useAuth();
 
+
   useEffect(() => {
+    //ユーザー情報の読み込みが終わった&サインイン済みのユーザーがいたら
     if (!authLoading && currentUser) {
+      //マイページに遷移(その時ログイン後に戻るボタンでこのログイン画面に戻らない)
       navigate("/MyPage", {replace:true});
     }
   },[currentUser,authLoading,navigate]);
@@ -20,16 +29,7 @@ const FanClubDtl: React.FC = () => {
     navigate(-1);
   };
 
-  const handleLogout = async () => {
-    try {
-      await logout();
-      navigate("/", { replace: true });
-    } catch (error) {
-      console.error("ログアウト中にエラーが発生しました:", error);
-      alert("ログアウト処理に失敗しました。再度お試しください。");
-    }
-  };
-
+  //ユーザー情報の読み込み中
   if (authLoading) {
     return (
       <div className="min-h-screen pt-20 flex flex-col items-center">
@@ -37,7 +37,8 @@ const FanClubDtl: React.FC = () => {
       </div>
     );
   }
-
+  //サインイン済みのユーザーがいる場合何も表示しない
+  //実際はuseEffectでマイページに自動遷移してる
   if (currentUser) {
     return null;
   }
