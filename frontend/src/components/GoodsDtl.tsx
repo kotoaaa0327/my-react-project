@@ -15,7 +15,7 @@ const GoodsDtl : React.FC= () => {
         alt="StormGoods"
         className="w-full h-auto"
       />
-      <h2 className="precautions "> 【注意事項】 </h2>
+      <h2 className="precautions"> 【注意事項】 </h2>
       <div className="py-4">
         <dl>
           <dd className="goods-detail">

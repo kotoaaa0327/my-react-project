@@ -217,7 +217,7 @@ const TicketDtl: React.FC = () => {
   }
 
   return (
-    <div className="relative justify-center mx-4 md:mx-32 lg:mx-36 xl:mx-60">
+    <div className="relative justify-center mx-4 md:mx-32 lg:mx-36 xl:mx-96">
       <div>
         <h2 className="ticket-title">チケット詳細・申し込み</h2>
 
@@ -239,7 +239,7 @@ const TicketDtl: React.FC = () => {
           <div className="border border-black bg-white">
             <div>
               <div className="flex justify-center">
-              <p className="text-left text-sm md:text-lg lg:text-[1.625rem] mb-3 p-3 lg:mt-4">
+              <p className="text-left text-sm md:text-lg lg:text-xl mb-3 p-3 lg:mt-4">
                 ご希望の公演を選択し、必要事項を入力してください。
                 <br />
                 お申し込みはお一人様1公演1回までです。

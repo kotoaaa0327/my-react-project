@@ -90,20 +90,21 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
   return (
     <>
     {/* 新規登録フォーム */}
-      <dialog id="signup_modal" className="modal ">
-        <div className="modal-box text-left">
+      <dialog id="signup_modal" className="modal">
+        <div className="modal-box text-left flex flex-col items-center">
           <h3 className="font-bold text-xl text-center">新規登録</h3>
 
           {/* モーダル内のエラー表示 */}
           {error && <p className="text-red-500">{error}</p>}
 
+          <div className="w-full max-w-md">
           {/* 名前入力フィールド */}
-          <div className=" mt-4">
-            <label className="label font-bold">
+          <div className="mt-4">
+            <label className="label font-bold w-full text-left">
               名前 :
               <input
                 type="text"
-                className="input ml-2 border-b border-gray-400"
+                className="input ml-2 border-b border-gray-400 w-full"
                 placeholder="山田太郎"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
@@ -113,8 +114,8 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
           </div>
 
           {/* 年齢入力フィールド */}
-          <div className=" mt-4">
-            <label className="label font-bold">
+          <div className="mt-4">
+            <label className="label font-bold w-full text-left">
               生年月日 :
               <div className="flex items-center ml-2 h-10">
                 <input
@@ -164,12 +165,12 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
           </div>
 
           {/* メールアドレス入力フィールド */}
-          <div className="form-control mt-4">
-            <label className="label font-bold">
+          <div className="mt-4">
+            <label className="label font-bold w-full text-left">
               メールアドレス :
               <input
                 type="email"
-                className="input ml-2 border-b border-gray-400"
+                className="input ml-2 border-b border-gray-400 w-full"
                 placeholder="メールアドレス"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
@@ -179,12 +180,12 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
           </div>
 
           {/* パスワード入力フィールド */}
-          <div className="form-control mt-5">
-            <label className="label font-bold">
+          <div className="mt-5">
+            <label className="label font-bold w-full text-left">
               パスワード :
               <input
                 type="password"
-                className="input ml-2 border-b border-gray-400"
+                className="input ml-2 border-b border-gray-400 w-full"
                 placeholder="パスワード"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
@@ -192,6 +193,8 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
               />
             </label>
           </div>
+          </div>
+        
 
           {/* 新規登録完了ボタン */}
           <div className="text-center mt-6 md:px-8 lg:px-20  ">
@@ -265,7 +268,7 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="btn px-5 py-1 border-2 border-gray-400 rounded-full hover:bg-[#A4C6FF] transition"
+                    className="login-btn"
                   >
                     {loading ? "ログイン中..." : "ログイン"}
                   </button>
@@ -277,7 +280,7 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
                     type="button"
                     onClick={handleSignup}
                     disabled={loading}
-                    className="btn px-5 py-1 border-2 border-gray-400  rounded-full hover:bg-[#FFABCE] transition"
+                    className="new-member-btn"
                   >
                     新規会員登録
                   </button>

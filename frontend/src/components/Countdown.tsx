@@ -35,11 +35,11 @@ const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
 const seconds = Math.floor((timeLeft / 1000) % 60);
 
   return (
-    <div className="text-center py-10">
+    <div className="text-center py-10 md:py-4 lg:py-6">
       <h2 className="section-title">
         LAST LIVE START IN
       </h2>
-      <div className="flex justify-center gap-3 md:gap-6 lg:gap-8 xl:gap-12 text-3xl md:text-4xl">
+      <div className="flex justify-center gap-3 md:gap-6 lg:gap-7 xl:gap-8 text-3xl md:text-4xl">
         {/* 日にち */}
         <div className="countdown-box">
           <span className="countdown-number">{days}</span>

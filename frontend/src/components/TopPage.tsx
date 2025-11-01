@@ -28,7 +28,7 @@ const TopPage: React.FC = () => {
         <MainVisual />
         <Countdown />
 
-        <section id="schedule" className="text-center tracking-wider ">
+        <section id="schedule" className="tracking-wider">
           <h2 className="section-title"> SCHEDULE </h2>
           <div className="schedule-layout">{concertsSchedule}</div>
         </section>

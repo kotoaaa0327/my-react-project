@@ -103,7 +103,7 @@ const MyPage: React.FC = () => {
             <div className="flex mr-3 ">
             <button
               onClick={handleLogout}
-              className="back-button"
+              className="back-button md:text-base"
             >
               ログアウト
             </button>
@@ -112,7 +112,7 @@ const MyPage: React.FC = () => {
             <div className="flex">
             <button
             onClick={handleBackClick}
-            className=" back-button "
+            className="back-button md:text-base"
           >
             戻る
           </button>
