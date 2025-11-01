@@ -42,7 +42,7 @@ const MyPageEdit: React.FC = () => {
 
         {/* 名前変更フィールド */}
         <div className="text-center mt-4">
-          <label className="label font-bold text-black">
+          <label className="label font-bold text-black md:text-xl">
             名前 :
             <input
               type="text"
@@ -57,7 +57,7 @@ const MyPageEdit: React.FC = () => {
 
         {/* 年齢変更フィールド */}
         <div className="text-center mt-10 md:mt-16">
-          <label className="label font-bold text-black">
+          <label className="label font-bold text-black md:text-xl">
             生年月日 :
             <div className="flex items-center ml-2">
               <input
@@ -118,7 +118,7 @@ const MyPageEdit: React.FC = () => {
         </div>
 
         {/* 戻るボタン */}
-        <div className="text-center mt-10">
+        <div className="text-center">
         <button
           onClick={handleBackClick}
           className="back-button"
