@@ -18,7 +18,7 @@ const Header = () => {
   };
 
   return (
-    <header className=" absolute top-0 left-0 w-full z-50 flex justify-between items-start p-4 text-white font-display tracking-wider">
+    <header className=" absolute top-0 left-0 w-full z-50 flex justify-between items-start p-2 md:p-4 lg:p-5 text-white font-display tracking-wider">
       <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white ">Storm</h1>
       <div className ="header-button">
       <button  onClick={scrollToSchedule}>SCHEDULE</button>

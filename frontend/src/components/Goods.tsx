@@ -17,7 +17,7 @@ const Goods: React.FC = ({ isLinkOnly = false }: GoodsProps) => {
             <br />
             2025/12/1(日) 10:00 ～ 2026/6/1(月) 18:00
           </p>
-          <p className="mt-2">
+          <p className="mt-2 lg:mt-4">
             Storm FINAL TOUR 2026 「Best of
             storm」のグッズをオンライン販売いたします！
           </p>

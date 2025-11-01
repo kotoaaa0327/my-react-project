@@ -52,7 +52,7 @@ const RequestFormDtl: React.FC = () => {
           ログインページへ移動
         </button>
         <div className="text-center">
-          <button onClick={handleBackClick} className="back-button">
+          <button onClick={handleBackClick} className="back-button text-sm md:text-lg lg:text-2xl">
             戻る
           </button>
         </div>

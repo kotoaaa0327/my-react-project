@@ -39,7 +39,8 @@ const TicketDtl: React.FC = () => {
   }) => {
     return (
       <div className="ticket-container">
-        <div>
+        <div className="flex justify-center">
+          <div className="text-left">
           <div className="date-and-location ">
             <p className=" ">{date}</p>
             <p className=" ">{place}</p>
@@ -54,6 +55,7 @@ const TicketDtl: React.FC = () => {
           <div className="ticket-detail">
             <p className=""> プレミアムチケット{premiumPrice}</p>
             <p className=""> / 通常チケット{price}</p>
+          </div>
           </div>
         </div>
       </div>
@@ -215,12 +217,12 @@ const TicketDtl: React.FC = () => {
   }
 
   return (
-    <div className="relative flex justify-center mx-4">
-      <div className="">
+    <div className="relative justify-center mx-4 md:mx-32 lg:mx-36 xl:mx-60">
+      <div>
         <h2 className="ticket-title">チケット詳細・申し込み</h2>
 
         <div>
-          <h3 className="text-center font-bold bg-[#AAAAAA] border border-black md:text-xl lg:text-2xl my-3 px-2 py-2">
+          <h3 className="ticket-category">
             チケット詳細
           </h3>
           <div className="border-black bg-white">
@@ -230,18 +232,20 @@ const TicketDtl: React.FC = () => {
           </div>
         </div>
         <div>
-          <h3 className="text-center font-bold bg-[#AAAAAA] border border-black md:text-xl lg:text-2xl mt-10 mb-3 px-2 py-2">
+          <h3 className="ticket-category mt-10 lg:mt-16">
             チケット申し込み
           </h3>
 
           <div className="border border-black bg-white">
             <div>
-              <p className=" text-sm md:text-lg lg:text-xl mb-3 p-3">
+              <div className="flex justify-center">
+              <p className="text-left text-sm md:text-lg lg:text-[1.625rem] mb-3 p-3 lg:mt-4">
                 ご希望の公演を選択し、必要事項を入力してください。
                 <br />
                 お申し込みはお一人様1公演1回までです。
               </p>
-              <form onSubmit={handleApplicationCompleted} className="md:px-4">
+              </div>
+              <form onSubmit={handleApplicationCompleted} className="md:px-4 lg:px-8">
                 {/* 公演選択 */}
                 <div className="container">
                   <div className="select-container">
@@ -384,7 +388,7 @@ const TicketDtl: React.FC = () => {
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="reservation-button "
+                    className="reservation-button"
                     onClick={handleApplicationCompleted}
                     disabled={loading}
                   >
@@ -397,7 +401,7 @@ const TicketDtl: React.FC = () => {
         </div>
 
         {/* 戻るボタン */}
-        <div className="text-center my-4">
+        <div className="text-center">
           <button onClick={handleBackClick} className="back-button">
             戻る
           </button>

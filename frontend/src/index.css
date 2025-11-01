@@ -14,15 +14,19 @@
 
     /* 1024px以上(lg)のスタイル*/
     @apply lg:text-6xl lg:mb-12 lg:mt-20;
+
+    /* 1280px以上(xl)スタイル */
   }
 
   /* ヘッダーボタン */
   .header-button {
-    @apply flex flex-col space-y-1 text-sm font-bold;
+    @apply flex flex-col space-y-1 text-sm font-bold mt-1;
 
     @apply md:text-3xl md:space-y-4;
 
-    @apply lg:text-5xl lg:space-y-6;
+    @apply lg:text-5xl lg:space-y-5 ;
+
+    @apply xl:text-5xl xl:space-y-8 ;
   }
 
   /* 背景 */
@@ -32,11 +36,11 @@
 
   /* カウントダウン箱 */
   .countdown-box {
-    @apply bg-white shadow-[0px_10px_15px_-3px_gray] rounded-xl w-16 h-16 flex flex-col items-center justify-center p-2;
+    @apply bg-white shadow-[0px_10px_15px_-3px_gray] rounded-lg w-16 h-16 flex flex-col items-center justify-center p-2;
 
-    @apply md:w-28 md:h-28;
+    @apply md:w-28 md:h-28 md:rounded-xl;
 
-    @apply lg:w-36 lg:h-36;
+    @apply lg:w-36 lg:h-36 lg:rounded-2xl;
   }
 
   /* カウントダウン数字 */
@@ -64,6 +68,8 @@
     @apply md:mx-32;
 
     @apply lg:mx-40;
+
+    @apply xl:mx-60;
   }
 
   /* トップページのスケジュール中身 */
@@ -73,6 +79,8 @@
     @apply md:mx-14 md:my-2 md:text-xl;
 
     @apply lg:mx-16 lg:my-4 lg:text-3xl;
+
+    @apply xl:mx-16 xl:my-8 xl:text-4xl;
   }
 
   /* トップページのTICKET/GOODS/FANCLUB/REQUEST大枠 */
@@ -82,15 +90,19 @@
     @apply md:mx-28 md:pb-6;
 
     @apply lg:mx-36 lg:pb-10;
+
+    @apply xl:mx-60;
   }
 
   /* トップページのTICKET/GOODS/FANCLUB/REQUEST中身 */
   .section-inner {
     @apply text-left text-sm mb-4 tracking-wide;
 
-    @apply md:text-left md:text-xl md:mb-8 md:pt-2 md:px-12 md:tracking-wider;
+    @apply md:text-xl md:mb-8 md:pt-2 md:px-12 md:tracking-wider;
 
-    @apply lg:text-left lg:text-3xl lg:mb-14 lg:pt-2 lg:px-12 lg:tracking-wider;
+    @apply lg:text-3xl lg:mb-14 lg:pt-2 lg:px-12 lg:tracking-wider;
+
+    @apply xl:pt-4 xl:tracking-widest;
   }
 
   /* トップページの詳細ボタン */
@@ -105,38 +117,47 @@
   /* チケット詳細ページ */
   /* チケット見出し */
   .ticket-title {
-    @apply text-xl font-bold pt-8 pb-4 text-center;
+    @apply text-xl pt-8 pb-4 font-bold text-center;
 
-    @apply md:text-2xl  md:pt-8 md:pb-6;
+    @apply md:text-3xl  md:pt-10 md:pb-6;
 
-    @apply lg:text-3xl  lg:pt-16 lg:pb-8;
+    @apply lg:text-[2.5rem] lg:pt-16 lg:pb-8;
+  }
+
+  /* 項目 */
+  .ticket-category {
+    @apply py-2 text-lg my-3 px-5 text-center font-bold bg-[#AAAAAA] border border-black;
+
+    @apply md:py-3 md:text-2xl;
+
+    @apply lg:py-4 lg:text-[2rem];
   }
 
   /* チケット詳細大枠 */
   .ticket-container {
-    @apply border border-black py-1 px-2 my-2;
+    @apply py-1 my-2 border border-black;
 
-    @apply md:p-4 md:my-4 md:px-8;
+    @apply md:p-2 md:my-3 ;
 
     @apply lg:p-4 lg:my-4;
   }
 
   /* 日時場所 */
   .date-and-location {
-    @apply flex font-bold;
+    @apply my-1 flex font-bold;
 
-    @apply md:text-xl;
+    @apply md:text-xl md:tracking-wide;
 
-    @apply lg:text-2xl;
+    @apply lg:my-2 lg:text-[1.75rem];
   }
 
   /* チケット詳細中身 */
   .ticket-detail {
-    @apply flex my-1 text-sm;
+    @apply my-1 text-sm flex;
 
-    @apply md:my-2 md:text-lg;
+    @apply md:my-2 md:text-lg md:tracking-wider;
 
-    @apply lg:my-2 lg:text-xl;
+    @apply lg:my-2 lg:text-2xl lg:tracking-widest;
   }
 
   /* チケット選択大枠 */
@@ -150,20 +171,20 @@
 
   /* チケット選択タイトル */
   .concert-select-title {
-    @apply font-bold mb-2 bg-gray-200 py-1;
+    @apply mb-2 py-1 px-3 font-bold bg-gray-200;
 
     @apply md:text-xl;
 
-    @apply lg:text-2xl;
+    @apply lg:py-4 lg:text-[1.75rem];
   }
 
   /* チケット選択中身 */
   .concert-select-inner {
     @apply p-2;
 
-    @apply md:p-4 md:text-lg;
+    @apply md:p-3 md:text-lg;
 
-    @apply lg:p-6 lg:text-xl;
+    @apply lg:p-6 lg:text-2xl;
   }
 
   /* 予約完了ボタン */
@@ -172,7 +193,7 @@
 
     @apply md:mb-6 md:text-lg;
 
-    @apply lg:mb-6 lg:text-xl;
+    @apply lg:py-4 lg:mb-12 lg:text-2xl;
   }
 
   /* GOODSページ */
@@ -197,9 +218,9 @@
 
   /* FC見出し */
   .fanclub-title {
-    @apply text-3xl font-bold my-5;
+    @apply text-3xl font-bold my-5 font-display;
 
-    @apply md:text-4xl  md:m-8;
+    @apply md:text-4xl  md:m-8 ;
 
     @apply lg:text-5xl  lg:m-16;
   }
@@ -278,7 +299,7 @@
 
   /* リクエストページタイトル */
   .request-login {
-    @apply font-bold text-xl pt-40;
+    @apply font-bold text-lg pt-40;
 
     @apply md:text-3xl;
 
@@ -287,11 +308,11 @@
 
   /* リクエストページ→ログインページ移動ボタン */
   .move-login-page {
-    @apply my-4 my-40 px-6 py-2 bg-gray-500 text-white rounded-full transition;
+    @apply text-sm my-40 px-6 py-2 bg-gray-500 text-white rounded-full transition;
 
-    @apply md:my-6 md:px-10 md:py-4 md:text-xl;
+    @apply md:my-60 md:px-10 md:py-3 md:text-lg;
 
-    @apply lg:my-12 lg:px-12 lg:py-3 lg:text-2xl;
+    @apply lg:my-96 lg:px-12 lg:py-4 lg:text-2xl;
   }
 
   /* リクエスト詳細 */
@@ -314,11 +335,11 @@
   }
   /* 戻るボタン */
   .back-button {
-    @apply my-3 px-6 py-2 bg-gray-500 text-white rounded-full hover:bg-gray-600 transition;
+    @apply my-6 px-6 py-2 bg-gray-500 text-white rounded-full hover:bg-gray-600 transition;
 
     @apply md:my-6 md:px-8 md:py-2 md:text-lg;
 
-    @apply lg:my-12 lg:px-8 lg:py-2 lg:text-xl;
+    @apply lg:my-12 lg:px-8 lg:py-4 lg:text-2xl;
   }
 
   /* フッター */

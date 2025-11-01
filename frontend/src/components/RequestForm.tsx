@@ -17,7 +17,7 @@ const RequestForm: React.FC = ({ isLinkOnly = false }: RequestFormProps) => {
           <br />
             2025/11/1(土)10:00 ～ 2026/12/1(月)18:00
           </p>
-          <p className="mt-2">
+          <p className="mt-2 lg:mt-4">
             Storm FINAL TOUR 2026 「Best of
             storm」の開催を記念して、会員限定でStormに歌ってほしい曲を大募集！
             <br />
