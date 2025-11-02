@@ -91,7 +91,7 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
     <>
     {/* 新規登録フォーム */}
       <dialog id="signup_modal" className="modal">
-        <div className="modal-box text-left flex flex-col items-center">
+        <div className="modal-box text-left md:px-20 flex flex-col items-center">
           <h3 className="font-bold text-xl text-center">新規登録</h3>
 
           {/* モーダル内のエラー表示 */}
